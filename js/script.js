@@ -1,23 +1,20 @@
-let argButtonName, buttonPaper, buttonRock, buttonScissors;
-
-buttonPaper = document.getElementById('button-paper');
-buttonRock = document.getElementById('button-rock');
+const buttonPaper = document.getElementById('button-paper'),
+buttonRock = document.getElementById('button-rock'),
 buttonScissors = document.getElementById('button-scissors');
 
-function buttonClicked(argButtonName) {
+function startGame(playerMove) {
   clearMessages();
-  console.log(argButtonName + ' został kliknięty');
+  console.log(playerMove + ' został kliknięty');
   
-  let computerMove, playerMove, randomNumber;
+  let computerMove, randomNumber;
   
-  playerMove = argButtonName;
-  console.log('ruch gracza to: ' + playerMove);
+   console.log('ruch gracza to: ' + playerMove);
   
         randomNumber = Math.floor(Math.random() * 3 + 1);
         console.log('wylosowana liczba to: ' + randomNumber);
   
   
-        function getMoveName(argMoveId) {
+        function computerMoveName(argMoveId) {
           console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
           if (argMoveId == 1) {
             return 'kamień';
@@ -34,7 +31,7 @@ function buttonClicked(argButtonName) {
           }
         }
 
-        computerMove = getMoveName(randomNumber);
+        computerMove = computerMoveName(randomNumber);
         console.log('Wylosowanej liczbie przypisano wartość ' + computerMove);
         console.log('ruch komputera to: ' + computerMove);
         
@@ -59,26 +56,8 @@ function buttonClicked(argButtonName) {
         }
         
         displayResult(playerMove, computerMove);
-      }
+  }
       
-buttonRock.addEventListener('click', function(){ buttonClicked('papier'); });
-buttonPaper.addEventListener('click', function(){ buttonClicked('kamień'); });
-buttonScissors.addEventListener('click', function(){ buttonClicked('nożyce'); });
-
-
-// Gra papier kamień nożyce
-// 1. użytkownik wybiera swój ruch
-//  1.1 tworzymy 3 guziki do wyboru ruchu nazwane papier, kamień, nożyce
-//  1.2 pobieramy te guziki po ich id
-//  1.3 naciśnięcie guzika wywołuje funkcję z wartością przypisaną guzikowi
-//  1.3 przypisujemy zmiennej playerMove wartość wciśniętego guzika
-
-// 2. komputer wybiera swój ruch
-//  2.1 komputer losuje liczbę od 1 do 3 
-//  2.2 przypisujemy zmiennej computerMove wartość poprzez uruchamienie funkcji z wylosowaną liczbą a następnie przypisującej wylosowanej liczbie wartość papier, kamień lub nożyce
-
-// computerMove = getMoveName(randomNumber);
-
-// 3. wyświetlony zostaje wynik pojedynku kto wygrał
-  // 3.1 komputer porównuje wartości zmiennych playerMove i computerMove określając zwycięstwo
-  // 3.2 komputer wyświetla jaki jest wynik pojedynku na podstawie zależności między wartościami
+buttonPaper.addEventListener('click', function(){ startGame('papier'); });
+buttonRock.addEventListener('click', function(){ startGame('kamień'); });
+buttonScissors.addEventListener('click', function(){ startGame('nożyce'); });
