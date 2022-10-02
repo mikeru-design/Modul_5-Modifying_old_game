@@ -1,4 +1,5 @@
-const buttonPaper = document.getElementById('button-paper'),
+const
+buttonPaper = document.getElementById('button-paper'),
 buttonRock = document.getElementById('button-rock'),
 buttonScissors = document.getElementById('button-scissors');
 
@@ -26,8 +27,8 @@ function startGame(playerMove) {
             return 'nożyce';
           } 
           else {
-            printMessage('Nie znam ruchu o id ' + argMoveId + '. Zakładam, że chodziło o "kamień".');
-            return 'kamień';
+            printMessage('Nie znam ruchu o id ' + argMoveId + '. Zakładam, że chodziło o "papier".');
+            return 'papier';
           }
         }
 
@@ -37,13 +38,13 @@ function startGame(playerMove) {
         
         function displayResult(argPlayerMove, argComputerMove) {
           console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
-          if (argPlayerMove == 'papier' && argComputerMove == 'kamień') {
+          if (argPlayerMove == 'papier' && argComputerMove == 'papier') {
             printMessage('Wygrywasz!');
           }
-          else if (argPlayerMove == 'kamień' && argComputerMove == 'nożyce') {
+          else if (argPlayerMove == 'kamień' && argComputerMove == 'kamień') {
             printMessage('Wygrywasz!');
           }
-          else if (argPlayerMove == 'nożyce' && argComputerMove == 'papier') {
+          else if (argPlayerMove == 'nożyce' && argComputerMove == 'nożyce') {
             printMessage('Wygrywasz!');
           }
           else if (argPlayerMove == argComputerMove) {
